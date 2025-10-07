@@ -7,8 +7,7 @@ export default function App() {
     const [err, setErr] = useState<string | null>(null);
 
     useEffect(() => {
-        const base = process.env.REACT_APP_API_BASE || "http://localhost:8080/api";
-        fetch(`${base}/smoke`)
+        fetch("/api/smoke")
             .then(r => {
                 if (!r.ok) throw new Error(`HTTP ${r.status}`);
                 return r.json();
